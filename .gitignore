@@ -1,6 +1,6 @@
 # packaging
 .Python
-.idea
+.idea/
 build/
 develop-eggs/
 dist/
