@@ -6,7 +6,7 @@ setup(
     packages=['test', 'points'],
     url='',
     license='',
-    author='Jaden',
+    author='Jayden',
     author_email='',
     description='Points MARS ROVERS Assigment'
 )
