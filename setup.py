@@ -1,4 +1,4 @@
-from setuptools import setup, find_packages
+from setuptools import setup
 
 setup(
     name='Points',
@@ -8,5 +8,5 @@ setup(
     license='',
     author='Jayden',
     author_email='',
-    description='Points MARS ROVERS Assigment'
+    description='Points MARS ROVERS Assignment',
 )
