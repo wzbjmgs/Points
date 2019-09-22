@@ -16,7 +16,7 @@ endif
 virtualenv: check_python3 check_pip3
 	@echo Check if the software 'virtualenv' is installed.
 	@echo [WARNING] Using 'pip' to install it in the user directory.
-	hash virtualenv 2>/dev/null || pip install --user virtualenv
+	hash virtualenv 2>/dev/null || pip install virtualenv
 
 venv3: virtualenv venv/bin/activate
 venv/bin/activate: requirements.txt
@@ -44,13 +44,13 @@ install_deps: venv3
 remove_deps:
 	-rm -rf venv
 
-build:
+package:
 	# Generate the tarball based on MANIFEST.in
 	python setup.py sdist
 	#
 	#
 	# Build the python Egg
-	python setup.py bdist_egg
+	python setup.py bdist_wheel
 	#
 	@echo
 	@echo "Files to upload:"
@@ -61,4 +61,4 @@ check:
 	# Run all the tests.
 	nosetests -v -s
 
-dev: clean install_deps check build
+install: clean install_deps check package
