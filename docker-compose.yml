@@ -1,0 +1,9 @@
+version: '1'
+
+services:
+  app:
+    restart: always
+    build: .
+    volumes:
+      - .:/app
+    command: tail -f /dev/null
