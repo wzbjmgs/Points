@@ -1,6 +1,9 @@
-from service.position_calculator import PositionCalculator
-from service.validation import *
+import logging
+
+from common import Util
 from exception.validation_exception import ValidationException
+from service.position_calculator import PositionCalculator
+from service.validation.plateau_validator import PlateauValidator
 
 __author__ = 'Jayden'
 

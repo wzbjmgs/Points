@@ -1,2 +1,0 @@
-from .test_plateau_validator import TestPlateauValidator
-from .test_position_validator import TestPositionValidator

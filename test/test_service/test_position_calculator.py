@@ -1,5 +1,6 @@
 import unittest
 from mock import Mock
+from nose.tools import assert_equal
 from common import Util
 from model import *
 from service.position_calculator import PositionCalculator
@@ -9,6 +10,7 @@ from service.validation.position_validator import PositionValidator
 class TestPositionCalculator(unittest.TestCase):
 
     def setUp(self):
+        self.validate = PositionValidator.validate
         self.rovers = []
         rone_init_position = "1 2 N"
         rone_cmd = "LMLMLMLMM"
@@ -29,12 +31,15 @@ class TestPositionCalculator(unittest.TestCase):
 
         final_positions = PositionCalculator.calculate(self.plateau, self.rovers)
 
-        self.assertEqual(2, len(final_positions))
+        assert_equal(2, len(final_positions))
 
     def test_calculate_validationFail(self):
-        self.validation_result.status=Util.FAIL
+        self.validation_result.status = Util.FAIL
         PositionValidator.validate = Mock(return_value=self.validation_result)
 
         final_positions = PositionCalculator.calculate(self.plateau, self.rovers)
 
-        self.assertEqual(0, len(final_positions))
+        assert_equal(0, len(final_positions))
+
+    def tearDown(self):
+        PositionValidator.validate = self.validate

@@ -1,9 +1,8 @@
-from common import Util
-from model import ValidationResult
-from service.validation.base_validator import BaseValidator
-from model import Plateau
 import logging
 import re
+from common import Util
+from model import ValidationResult, Plateau
+from service.validation.base_validator import BaseValidator
 
 
 class PositionValidator(BaseValidator):
@@ -13,7 +12,6 @@ class PositionValidator(BaseValidator):
     def validate(cls, rover_input: str) -> ValidationResult:
         cls.logger.info("Validate rover input data")
         result = ValidationResult()
-
         plateau_matrix = Plateau.matrix
         num_rows = str(len(plateau_matrix) - 1)
         num_cols = str(len(plateau_matrix[0]) - 1)

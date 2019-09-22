@@ -1,42 +1,44 @@
 import unittest
 
+from nose.tools import assert_equal
+
 from common import Util
-from service.validation import PlateauValidator
+from service.validation.plateau_validator import PlateauValidator
 
 
 class TestPlateauValidator(unittest.TestCase):
 
     def test_validate_inputCoord(self):
         plateau_input = "5 5"
-        result = PlateauValidator.validate(plateau_input)
+        validation_result = PlateauValidator.validate(plateau_input)
 
-        self.assertEqual(Util.SUCCESS, result.status)
-        self.assertEqual("", result.message)
+        assert_equal(Util.SUCCESS, validation_result.status)
+        assert_equal("", validation_result.message)
 
     def test_validate_inputEmptyCoord(self):
         plateau_input = ""
         result = PlateauValidator.validate(plateau_input)
 
-        self.assertEqual(Util.FAIL, result.status)
-        self.assertTrue(result.message != "")
+        assert_equal(Util.FAIL, result.status)
+        assert result.message != ""
 
     def test_validate_inputPartCoord(self):
         plateau_input = "5"
         result = PlateauValidator.validate(plateau_input)
 
-        self.assertEqual(Util.FAIL, result.status)
-        self.assertTrue(result.message != "")
+        assert_equal(Util.FAIL, result.status)
+        assert result.message != ""
 
     def test_validate_inputLetterCoord(self):
         plateau_input = "A 5"
         result = PlateauValidator.validate(plateau_input)
 
-        self.assertEqual(Util.FAIL, result.status)
-        self.assertTrue(result.message != "")
+        assert_equal(Util.FAIL, result.status)
+        assert result.message != ""
 
     def test_validate_inputNegativeCoord(self):
         plateau_input = "-1 5"
         result = PlateauValidator.validate(plateau_input)
 
-        self.assertEqual(Util.FAIL, result.status)
-        self.assertTrue(result.message != "")
+        assert_equal(Util.FAIL, result.status)
+        assert result.message != ""

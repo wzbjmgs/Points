@@ -5,12 +5,14 @@ from exception import ValidationException
 from model import ValidationResult
 from points.app import calculate_rover_position
 from service.position_calculator import PositionCalculator
-from service.validation import PlateauValidator
+from service.validation.plateau_validator import PlateauValidator
 
 
 class TestApp(unittest.TestCase):
 
     def setUp(self):
+        self.validate = PlateauValidator.validate
+        self.calculate = PositionCalculator.calculate
         self.rovers = []
         rone_init_position = "1 2 N"
         rone_cmd = "LMLMLMLMM"
@@ -39,3 +41,7 @@ class TestApp(unittest.TestCase):
             calculate_rover_position(self.plateau, self.rovers)
         except ValidationException as ex:
             self.assertEqual("Fail", ex.error_msg)
+
+    def tearDown(self):
+        PlateauValidator.validate = self.validate
+        PositionCalculator.calculate = self.calculate

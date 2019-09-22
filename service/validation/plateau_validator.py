@@ -13,7 +13,6 @@ class PlateauValidator(BaseValidator):
         cls.logger.info("Validate plateau input data")
         result = ValidationResult()
         regex = "^[0-9]+ [0-9]+$"
-        print(plateau_input)
         match = re.match(regex, plateau_input)
         if not match:
             result.status = Util.FAIL
