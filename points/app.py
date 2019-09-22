@@ -1,21 +1,24 @@
-from service.PositionCalculator import calculate_rover_position
+from service.position_calculator import PositionCalculator
+from service.validation import *
+from exception.validation_exception import ValidationException
 
 __author__ = 'Jayden'
 
+log = logging.getLogger(__name__)
 
-def calculate_rover_position(ur_coordintes, rover_list):
-    coordinates = ur_coordintes.split()
-    row = int(coordinates[0])
-    col = int(coordinates[1])
-    final_positions = []
 
-    for rover in rover_list:
-        rover_position = calculate_rover_position(row, col, rover)
-        final_positions.append(rover_position)
+def calculate_rover_position(plateau_input: str, rovers_input: list) -> list:
+    validation_result = PlateauValidator.validate(plateau_input)
+    if validation_result.status == Util.FAIL:
+        raise ValidationException(validation_result.message)
+    final_positions = PositionCalculator.calculate(plateau_input, rovers_input)
     print(final_positions)
 
 
-def main():
+if __name__ == '__main__':
+    LOG_FORMAT = "%(asctime)s - %(levelname)s - %(message)s"
+    logging.basicConfig(level=logging.INFO, format=LOG_FORMAT)
+
     urcoordintes = "5 5"
     roverList = []
     roverOneStartPosition = "1 2 N"
@@ -26,7 +29,4 @@ def main():
     roverTwo = [roverTwoStartPosition, roverTwoCommand]
     roverList.append(roverOne)
     roverList.append(roverTwo)
-    calculate_final_position(urcoordintes, roverList)
-
-main()
-
+    calculate_rover_position(urcoordintes, roverList)
