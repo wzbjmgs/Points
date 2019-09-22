@@ -31,7 +31,7 @@ class Rover(object):
         for i in range(len(commands)):
             if not self.process_command(commands[i]):
                 break
-        Plateau.update_cell(self.__position)
+        Plateau.update_cell(self.__position.x, self.__position.y)
 
     def process_command(self, command) -> bool:
         if 'L' == command:
@@ -56,7 +56,7 @@ class Rover(object):
             self.__position.y -= 1
         elif Util.DIRECTIONS['W'] == self.__direction:
             self.__position.x -= 1
-        if not Plateau.is_cell_available(self.__position):
+        if not Plateau.is_cell_available(self.__position.x, self.__position.y):
             self.__position.x = pre_x
             self.__position.y = pre_y
             return False
