@@ -59,6 +59,6 @@ build:
 
 check:
 	# Run all the tests.
-	nosetests
+	nosetests -v -s
 
 dev: clean install_deps check build

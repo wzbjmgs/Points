@@ -9,18 +9,21 @@ from service.validation.position_validator import PositionValidator
 
 class TestPositionCalculator(unittest.TestCase):
 
-    def setUp(self):
-        self.validate = PositionValidator.validate
-        self.rovers = []
+    @classmethod
+    def setUpClass(cls):
+        cls.rovers = []
         rone_init_position = "1 2 N"
         rone_cmd = "LMLMLMLMM"
         rtwo_init_position = "3 3 E"
         rtwo_cmd = "MMRMMRMRRM"
         rover_one = [rone_init_position, rone_cmd]
         rover_two = [rtwo_init_position, rtwo_cmd]
-        self.rovers.append(rover_one)
-        self.rovers.append(rover_two)
-        self.plateau = "5 5"
+        cls.rovers.append(rover_one)
+        cls.rovers.append(rover_two)
+        cls.plateau = "5 5"
+
+    def setUp(self):
+        self.validate = PositionValidator.validate
         self.validation_result = ValidationResult()
 
     def test_calculate_validationSuccess(self):

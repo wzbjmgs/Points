@@ -10,21 +10,24 @@ from service.validation.plateau_validator import PlateauValidator
 
 class TestApp(unittest.TestCase):
 
-    def setUp(self):
-        self.validate = PlateauValidator.validate
-        self.calculate = PositionCalculator.calculate
-        self.rovers = []
+    @classmethod
+    def setUpClass(cls):
+        cls.rovers = []
         rone_init_position = "1 2 N"
         rone_cmd = "LMLMLMLMM"
         rtwo_init_position = "3 3 E"
         rtwo_cmd = "MMRMMRMRRM"
         rover_one = [rone_init_position, rone_cmd]
         rover_two = [rtwo_init_position, rtwo_cmd]
-        self.rovers.append(rover_one)
-        self.rovers.append(rover_two)
-        self.plateau = "5 5"
+        cls.rovers.append(rover_one)
+        cls.rovers.append(rover_two)
+        cls.plateau = "5 5"
+        cls.final_positions = ["1 2 N", "3 3 E"]
+
+    def setUp(self):
+        self.validate = PlateauValidator.validate
+        self.calculate = PositionCalculator.calculate
         self.validation_result = ValidationResult()
-        self.final_positions = ["1 2 N", "3 3 E"]
 
     def test_calculate_rover_position_validationSuccess(self):
         PlateauValidator.validate = Mock(return_value=self.validation_result)

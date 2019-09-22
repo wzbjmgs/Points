@@ -4,7 +4,8 @@ from model import Plateau
 
 class TestPlateau():
 
-    def setUp(self):
+    @classmethod
+    def setUpClass(cls):
         x = 5
         y = 5
         Plateau.initialize(x, y)
