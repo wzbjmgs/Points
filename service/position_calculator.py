@@ -1,6 +1,6 @@
 from model import *
 from common import *
-from service.validation.letter_validator import LetterValidator
+from service.validation.position_validator import PositionValidator
 
 
 class PositionCalculator:
@@ -13,7 +13,7 @@ class PositionCalculator:
         Plateau.initialize(x, y)
         final_positions = []
         for rover_input in rovers_input:
-            validation_result = LetterValidator.validate(rover_input)
+            validation_result = PositionValidator.validate(rover_input)
             if validation_result.status == Util.FAIL:
                 continue
             init_position = rover_input[0].split()

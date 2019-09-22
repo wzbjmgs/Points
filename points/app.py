@@ -13,6 +13,7 @@ def calculate_rover_position(plateau_input: str, rovers_input: list) -> list:
         raise ValidationException(validation_result.message)
     final_positions = PositionCalculator.calculate(plateau_input, rovers_input)
     print(final_positions)
+    return final_positions
 
 
 if __name__ == '__main__':

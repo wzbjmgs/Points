@@ -4,6 +4,7 @@ import numpy
 class Plateau(object):
     min_width = 0
     min_height = 0
+    matrix = []
 
     @classmethod
     def initialize(cls, width, height):
@@ -15,8 +16,8 @@ class Plateau(object):
     def is_cell_available(cls, x, y) -> bool:
         return cls.min_width <= x <= cls.width \
                and cls.min_width <= y <= cls.height \
-               and cls.matrix[x][y]
+               and not cls.matrix[x][y]
 
     @classmethod
     def update_cell(cls, x, y):
-        cls.matrix[x][y] = True
+        cls.matrix[x][y] = False
