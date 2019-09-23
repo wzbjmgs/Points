@@ -1,7 +1,7 @@
 import logging
 
-from common import Util
-from exception.validation_exception import ValidationException
+from common.util import Util
+from exception import ValidationException
 from service.position_calculator import PositionCalculator
 from service.validation.plateau_validator import PlateauValidator
 
@@ -20,18 +20,18 @@ def calculate_rover_position(plateau_input: str, rovers_input: list) -> list:
 
 
 def main():
-    LOG_FORMAT = "%(asctime)s - %(levelname)s - %(message)s"
-    logging.basicConfig(level=logging.INFO, format=LOG_FORMAT)
+    log_format= "%(asctime)s - %(levelname)s - %(message)s"
+    logging.basicConfig(level=logging.INFO, format=log_format)
     plateau_input = "5 5"
     rovers_input = []
-    roverOneStartPosition = "1 2 N"
-    roverOneCommand = "LMLMLMLMM"
-    roverTwoStartPosition = "3 3 E"
-    roverTwoCommand = "MMRMMRMRRM"
-    roverOne = [roverOneStartPosition, roverOneCommand]
-    roverTwo = [roverTwoStartPosition, roverTwoCommand]
-    rovers_input.append(roverOne)
-    rovers_input.append(roverTwo)
+    rone_init_position = "1 2 N"
+    rone_cmd = "LMLMLMLMM"
+    rtwo_init_position = "3 3 E"
+    rtwo_cmd = "MMRMMRMRRM"
+    rover_one = [rone_init_position, rone_cmd]
+    rover_two = [rtwo_init_position, rtwo_cmd]
+    rovers_input.append(rover_one)
+    rovers_input.append(rover_two)
     calculate_rover_position(plateau_input, rovers_input)
 
 if __name__ == '__main__':

@@ -1,6 +1,7 @@
 import logging
 import re
-from common import Util
+
+from common.util import Util
 from model import ValidationResult
 from service.validation.base_validator import BaseValidator
 

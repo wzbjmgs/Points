@@ -1,9 +1,12 @@
+import logging
+
+from common.util import Util
 from model import *
-from common import *
 from service.validation.position_validator import PositionValidator
 
 
 class PositionCalculator:
+    logger = logging.getLogger(__name__)
 
     @classmethod
     def calculate(cls, plateau_input: str, rovers_input: list) -> list:
@@ -15,6 +18,7 @@ class PositionCalculator:
         for rover_input in rovers_input:
             validation_result = PositionValidator.validate(rover_input)
             if validation_result.status == Util.FAIL:
+                cls.logger.error("Invalid position: " + validation_result.message)
                 continue
             init_position = rover_input[0].split()
             mov_cmd = rover_input[1]

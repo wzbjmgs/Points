@@ -1,7 +1,8 @@
 import unittest
 
 import numpy as np
-from common import Util
+
+from common.util import Util
 from model import Plateau
 from nose.tools import assert_equal
 from service.validation.position_validator import PositionValidator
