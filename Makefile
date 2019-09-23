@@ -57,4 +57,4 @@ test:
 	#############################
 	nosetests -v -s
 
-install: clean install_deps check package
+install: clean install_deps test package
