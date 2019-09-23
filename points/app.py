@@ -27,6 +27,8 @@ def calculate_rover_position(plateau_input: str, rovers_input: list) -> list:
 
 def main(argv):
     setup_logging()
+
+    # argv receive arguments when using shell script start application
     plateau_input = ""
     rovers_input = []
     if len(argv) != 3:
@@ -36,6 +38,7 @@ def main(argv):
     else:
         plateau_input = argv[1]
         rovers_input = ast.literal_eval(argv[2])
+
     return calculate_rover_position(plateau_input, rovers_input)
 
 

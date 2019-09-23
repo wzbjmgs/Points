@@ -60,7 +60,7 @@ package:
 	@echo "--------------------------"
 	@ls -l ./dist/
 
-check:
+test:
 	# Run all the tests.
 	nosetests -v -s
 
