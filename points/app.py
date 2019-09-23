@@ -19,18 +19,20 @@ def calculate_rover_position(plateau_input: str, rovers_input: list) -> list:
     return final_positions
 
 
-if __name__ == '__main__':
+def main():
     LOG_FORMAT = "%(asctime)s - %(levelname)s - %(message)s"
     logging.basicConfig(level=logging.INFO, format=LOG_FORMAT)
-
-    urcoordintes = "5 5"
-    roverList = []
+    plateau_input = "5 5"
+    rovers_input = []
     roverOneStartPosition = "1 2 N"
     roverOneCommand = "LMLMLMLMM"
     roverTwoStartPosition = "3 3 E"
     roverTwoCommand = "MMRMMRMRRM"
     roverOne = [roverOneStartPosition, roverOneCommand]
     roverTwo = [roverTwoStartPosition, roverTwoCommand]
-    roverList.append(roverOne)
-    roverList.append(roverTwo)
-    calculate_rover_position(urcoordintes, roverList)
+    rovers_input.append(roverOne)
+    rovers_input.append(roverTwo)
+    calculate_rover_position(plateau_input, rovers_input)
+
+if __name__ == '__main__':
+    main()
