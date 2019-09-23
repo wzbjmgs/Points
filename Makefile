@@ -20,27 +20,22 @@ virtualenv: check_python3 check_pip3
 
 venv3: virtualenv venv/bin/activate
 venv/bin/activate: requirements.txt
+    ##############################
+	#Install required dependencies
+	#############################
 	test -d venv || virtualenv --python=python3 venv
 	venv/bin/pip install -r requirements.txt;
 	touch venv/bin/activate
 
 clean:
-	# Clean up any build files.
+	##############################
+	#Clean up any build files.###
+	#############################
 	python setup.py clean --all
-	#
-	# Clean up everything else
-	rm MANIFEST || true
 	rm -rf build-*
-	#
-	# Clean up the egg files
 	rm -rf *egg*
-	#
-	# Remove dist
 	rm -rf dist
-	#
-	# Rmove log files
 	rm -rf docs/log_files/*.log
-	#rm $(REQUIREMENTS_OUT)
 
 install_deps: venv3
 
@@ -48,20 +43,18 @@ remove_deps:
 	-rm -rf venv
 
 package:
-	# Generate the tarball based on MANIFEST.in
-	python setup.py sdist
-	#
-	#
-	# Build the python Egg
+    ##############################
+	#Build wheel files        ###
+	#############################
 	python setup.py bdist_wheel
-	#
-	@echo
-	@echo "Files to upload:"
-	@echo "--------------------------"
-	@ls -l ./dist/
+	##############################
+	#Build success!!          ###
+	#############################
 
 test:
-	# Run all the tests.
+	##############################
+	#Run all testes           ###
+	#############################
 	nosetests -v -s
 
 install: clean install_deps check package
