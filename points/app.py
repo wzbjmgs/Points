@@ -27,7 +27,6 @@ def calculate_rover_position(plateau_input: str, rovers_input: list) -> list:
 def main(argv):
     log_format = "%(asctime)s - %(levelname)s - %(message)s"
     logging.basicConfig(level=logging.INFO, format=log_format)
-
     rovers_input = ast.literal_eval(argv[2])
     calculate_rover_position(argv[1], rovers_input)
 

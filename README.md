@@ -48,3 +48,6 @@ second rover will pause a round and then move forward. Doing this because I want
 to provide a complete view. If I abandon one command, and move to next command, it will change the rovers moving
 plan and may not provide complete view.
 Problem: deadlock, all rovers wait for each other.
+
+Test Data
+"5 5" "[['1 2 N', 'LMLMLMLMM'], ['3 3 E', 'MMRMMRMRRM']]"

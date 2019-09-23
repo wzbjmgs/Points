@@ -1,2 +1,4 @@
-python ./points/app.py "5 5" "[['1 2 N', 'LMLMLMLMM'], ['3 3 E', 'MMRMMRMRRM']]"
+#!/bin/bash
+
+python ./points/app.py "$1" "$2"
 $SHELL
