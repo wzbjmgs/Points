@@ -20,7 +20,6 @@ def calculate_rover_position(plateau_input: str, rovers_input: list) -> list:
     if validation_result.status == Util.FAIL:
         raise ValidationException(validation_result.message)
     final_positions = PositionCalculator.calculate(plateau_input, rovers_input)
-    print(final_positions)
     return final_positions
 
 
@@ -28,8 +27,10 @@ def main(argv):
     log_format = "%(asctime)s - %(levelname)s - %(message)s"
     logging.basicConfig(level=logging.INFO, format=log_format)
     rovers_input = ast.literal_eval(argv[2])
-    calculate_rover_position(argv[1], rovers_input)
+    response = calculate_rover_position(argv[1], rovers_input)
+    return response
 
 
 if __name__ == '__main__':
-    main(sys.argv)
+    exit(main(sys.argv))
+

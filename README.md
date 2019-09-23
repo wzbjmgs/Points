@@ -51,3 +51,11 @@ Problem: deadlock, all rovers wait for each other.
 
 Test Data
 "5 5" "[['1 2 N', 'LMLMLMLMM'], ['3 3 E', 'MMRMMRMRRM']]"
+
+Run: 
+1. run run.sh bash run.sh "5 5" "[['1 2 N', 'LMLMLMLMM'], ['3 3 E', 'MMRMMRMRRM']]"
+2. run docker run -i -t  points
+3. After build docker image：docker build . -t points:latest
+, and start docker container：  docker run -i -t -d  points
+docker exec 32f45891c100 /bin/sh -c bash run.sh "5 5" "[['1 2 N', 'LMLMLMLMM'], ['3 3 E', 'MMRMMRMRRM']]"
+
