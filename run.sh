@@ -1,4 +1,4 @@
 #!/bin/bash
 
-python ./points/app.py "$1" "$2" 2>&1
+python -u ./points/app.py "$1" "$2" >&1
 $SHELL
