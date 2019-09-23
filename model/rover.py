@@ -5,7 +5,7 @@ from .plateau import Plateau
 
 
 class Rover(object):
-    log = logging.getLogger(__name__)
+    logger = logging.getLogger(__name__)
 
     __position = ""
     __prv_position = ""
@@ -61,7 +61,7 @@ class Rover(object):
         elif Util.DIRECTIONS['W'] == self.__direction:
             self.__position.x -= 1
         if not Plateau.is_cell_available(self.__position.x, self.__position.y):
-            self.logger.error("Invalid move, rover stop and abandon rest commands")
+            # self.logger.error("Invalid move, rover stop and abandon rest commands")
             self.__position.x = pre_x
             self.__position.y = pre_y
             return False

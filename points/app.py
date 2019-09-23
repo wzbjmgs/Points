@@ -1,4 +1,9 @@
+import os
+import sys
 import logging
+import ast
+
+sys.path.append(os.path.dirname(sys.path[0]))
 
 from common.util import Util
 from exception import ValidationException
@@ -19,20 +24,13 @@ def calculate_rover_position(plateau_input: str, rovers_input: list) -> list:
     return final_positions
 
 
-def main():
-    log_format= "%(asctime)s - %(levelname)s - %(message)s"
+def main(argv):
+    log_format = "%(asctime)s - %(levelname)s - %(message)s"
     logging.basicConfig(level=logging.INFO, format=log_format)
-    plateau_input = "5 5"
-    rovers_input = []
-    rone_init_position = "1 2 N"
-    rone_cmd = "LMLMLMLMM"
-    rtwo_init_position = "3 3 E"
-    rtwo_cmd = "MMRMMRMRRM"
-    rover_one = [rone_init_position, rone_cmd]
-    rover_two = [rtwo_init_position, rtwo_cmd]
-    rovers_input.append(rover_one)
-    rovers_input.append(rover_two)
-    calculate_rover_position(plateau_input, rovers_input)
+
+    rovers_input = ast.literal_eval(argv[2])
+    calculate_rover_position(argv[1], rovers_input)
+
 
 if __name__ == '__main__':
-    main()
+    main(sys.argv)

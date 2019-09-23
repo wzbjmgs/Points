@@ -1,6 +1,7 @@
 import unittest
 from unittest.mock import Mock
-from common import Util
+
+from common.util import Util
 from exception import ValidationException
 from model import ValidationResult
 from points.app import calculate_rover_position
