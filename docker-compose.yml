@@ -1,9 +1,0 @@
-version: '3.4'
-
-services:
-  app:
-    restart: always
-    build: .
-    volumes:
-      - .:/app
-    command: tail -f
