@@ -2,7 +2,7 @@ import unittest
 
 from nose.tools import assert_equal
 
-from common import Util
+from common.util import Util
 from service.validation.plateau_validator import PlateauValidator
 
 

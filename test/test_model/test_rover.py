@@ -1,7 +1,7 @@
 from mock import Mock
 
+from common.util import Util
 from model import *
-from common import Util
 from nose.tools import assert_equal
 
 

@@ -16,7 +16,7 @@ class Plateau(object):
     def is_cell_available(cls, x, y) -> bool:
         return cls.min_width <= x <= cls.width \
                and cls.min_width <= y <= cls.height \
-               and not cls.matrix[x][y]
+               and cls.matrix[x][y]
 
     @classmethod
     def update_cell(cls, x, y):

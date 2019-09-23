@@ -23,5 +23,6 @@ class PositionValidator(BaseValidator):
             result.status = Util.FAIL
             result.message = "Input rover initial position is invalid. Rover has be inside plateau. Please input two " \
                              "integer position and one letter as one of E S W N"
+            cls.logger.error(result.message)
             return result
         return result

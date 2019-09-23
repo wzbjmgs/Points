@@ -34,6 +34,8 @@ class Rover(object):
     def process(self, commands):
         for i in range(len(commands)):
             if not self.process_command(commands[i]):
+                self.logger.error("rover can't move to next step due to collision or out of safe area, rover will "
+                                  "stop at current position and abandon the rest commands if there is ")
                 break
         Plateau.update_cell(self.__position.x, self.__position.y)
 
@@ -61,14 +63,16 @@ class Rover(object):
         elif Util.DIRECTIONS['W'] == self.__direction:
             self.__position.x -= 1
         if not Plateau.is_cell_available(self.__position.x, self.__position.y):
-            # self.logger.error("Invalid move, rover stop and abandon rest commands")
             self.__position.x = pre_x
             self.__position.y = pre_y
             return False
+        self.logger.info("Rover move forward one step and current position are: " + str(self.__position.x) + ":" + str(self.__position.y))
         return True
 
     def turn_left(self):
+        self.logger.info("rover turn left and current direction is: " + self.get_direction)
         self.__direction = Util.DIRECTIONS['N'] if (self.__direction - 1) < Util.DIRECTIONS['E'] else self.__direction - 1
 
     def turn_right(self):
+        self.logger.info("rover turn right and current direction is: " + self.get_direction)
         self.__direction = Util.DIRECTIONS['E'] if (self.__direction + 1) > Util.DIRECTIONS['N'] else self.__direction + 1

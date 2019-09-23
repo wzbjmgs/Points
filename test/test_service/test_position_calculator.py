@@ -1,7 +1,8 @@
 import unittest
 from mock import Mock
 from nose.tools import assert_equal
-from common import Util
+
+from common.util import Util
 from model import *
 from service.position_calculator import PositionCalculator
 from service.validation.position_validator import PositionValidator

@@ -60,5 +60,5 @@ Run:
 docker exec 32f45891c100 /bin/sh -c bash run.sh "5 5" "[['1 2 N', 'LMLMLMLMM'], ['3 3 E', 'MMRMMRMRRM']]"
 docker logs df090c008bb1 then you can see output
 
-docker-compose up -d build and start points-app container
+docker-compose up -d --force-recreate --build: re build and start points-app container
 

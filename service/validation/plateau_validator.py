@@ -18,5 +18,6 @@ class PlateauValidator(BaseValidator):
         if not match:
             result.status = Util.FAIL
             result.message = "Plateau input is invalid. Please input two positive integer with white space as separator"
+            cls.logger.error(result.message)
             return result
         return result
