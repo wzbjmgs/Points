@@ -1,11 +1,16 @@
+import unittest
+
 from mock import Mock
 
-from common.util import Util
-from model import *
+from points.src.common.util import Util
 from nose.tools import assert_equal
 
+from points.src.model.plateau import Plateau
+from points.src.model.position import Position
+from points.src.model.rover import Rover
 
-class TestRover:
+
+class TestRover(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
@@ -13,7 +18,6 @@ class TestRover:
         position = Position(1, 2)
         heading = Util.DIRECTIONS.get("N")
         cls.rover.set_position(position, heading)
-
 
     def test_process_inputCmd(self):
         command = "LMLMLMLMM"

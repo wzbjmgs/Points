@@ -1,8 +1,10 @@
 import logging
 
-from common.util import Util
-from model import *
-from service.validation.position_validator import PositionValidator
+from points.src.common.util import Util
+from points.src.model.plateau import Plateau
+from points.src.model.position import Position
+from points.src.model.rover import Rover
+from points.src.service.validation.position_validator import PositionValidator
 
 
 class PositionCalculator:
@@ -15,6 +17,7 @@ class PositionCalculator:
         y = int(p_coord[1])
         Plateau.initialize(x, y)
         final_positions = []
+
         for rover_input in rovers_input:
             validation_result = PositionValidator.validate(rover_input)
             if validation_result.status == Util.FAIL:

@@ -1,5 +1,4 @@
 class Util(object):
-
     SUCCESS = "OK"
     FAIL = "fail"
 

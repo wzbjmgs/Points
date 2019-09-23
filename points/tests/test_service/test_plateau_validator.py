@@ -1,9 +1,8 @@
 import unittest
 
 from nose.tools import assert_equal
-
-from common.util import Util
-from service.validation.plateau_validator import PlateauValidator
+from points.src.common.util import Util
+from points.src.service.validation.plateau_validator import PlateauValidator
 
 
 class TestPlateauValidator(unittest.TestCase):

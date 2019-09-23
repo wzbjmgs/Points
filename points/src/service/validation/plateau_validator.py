@@ -1,9 +1,9 @@
 import logging
 import re
 
-from common.util import Util
-from model import ValidationResult
-from service.validation.base_validator import BaseValidator
+from points.src.common.util import Util
+from points.src.model.validation_result import ValidationResult
+from points.src.service.validation.base_validator import BaseValidator
 
 
 class PlateauValidator(BaseValidator):
@@ -12,6 +12,7 @@ class PlateauValidator(BaseValidator):
     @classmethod
     def validate(cls, plateau_input: str) -> ValidationResult:
         cls.logger.info("Validate plateau input data")
+
         result = ValidationResult()
         regex = "^[0-9]+ [0-9]+$"
         match = re.match(regex, plateau_input)

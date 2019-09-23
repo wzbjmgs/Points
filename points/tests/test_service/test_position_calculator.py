@@ -2,10 +2,11 @@ import unittest
 from mock import Mock
 from nose.tools import assert_equal
 
-from common.util import Util
-from model import *
-from service.position_calculator import PositionCalculator
-from service.validation.position_validator import PositionValidator
+from points.src.common.util import Util
+from points.src.model.rover import Rover
+from points.src.model.validation_result import ValidationResult
+from points.src.service.position_calculator import PositionCalculator
+from points.src.service.validation.position_validator import PositionValidator
 
 
 class TestPositionCalculator(unittest.TestCase):
@@ -33,7 +34,8 @@ class TestPositionCalculator(unittest.TestCase):
         Rover.current_position = Mock(return_value="1 2 N")
         Rover.set_position = Mock(return_value=None)
 
-        final_positions = PositionCalculator.calculate(self.plateau, self.rovers)
+        final_positions = PositionCalculator.calculate(self.plateau,
+                                                       self.rovers)
 
         assert_equal(2, len(final_positions))
 
@@ -41,7 +43,8 @@ class TestPositionCalculator(unittest.TestCase):
         self.validation_result.status = Util.FAIL
         PositionValidator.validate = Mock(return_value=self.validation_result)
 
-        final_positions = PositionCalculator.calculate(self.plateau, self.rovers)
+        final_positions = PositionCalculator.calculate(self.plateau,
+                                                       self.rovers)
 
         assert_equal(0, len(final_positions))
 

@@ -37,6 +37,9 @@ clean:
 	#
 	# Remove dist
 	rm -rf dist
+	#
+	# Rmove log files
+	rm -rf docs/log_files/*.log
 	#rm $(REQUIREMENTS_OUT)
 
 install_deps: venv3

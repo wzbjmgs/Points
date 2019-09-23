@@ -1,8 +1,10 @@
+import unittest
+
 from nose.tools import assert_equal
-from model import Plateau
+from points.src.model.plateau import Plateau
 
 
-class TestPlateau():
+class TestPlateau(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):

@@ -2,15 +2,17 @@ import unittest
 
 import numpy as np
 
-from common.util import Util
-from model import Plateau
+from points.src.common.util import Util
+
 from nose.tools import assert_equal
-from service.validation.position_validator import PositionValidator
+
+from points.src.model.plateau import Plateau
+from points.src.service.validation.position_validator import PositionValidator
 
 
 class TestPositionValidator(unittest.TestCase):
-
-    def setUp(self):
+    @classmethod
+    def setUpClass(cls):
         Plateau.matrix = np.ones((5, 5), dtype=bool)
 
     def test_validate_inputRoverData(self):

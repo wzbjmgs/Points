@@ -1,12 +1,12 @@
 import unittest
 from unittest.mock import Mock
 
-from common.util import Util
-from exception import ValidationException
-from model import ValidationResult
 from points.app import calculate_rover_position
-from service.position_calculator import PositionCalculator
-from service.validation.plateau_validator import PlateauValidator
+from points.src.common.util import Util
+from points.src.exception.validation_exception import ValidationException
+from points.src.model.validation_result import ValidationResult
+from points.src.service.position_calculator import PositionCalculator
+from points.src.service.validation.plateau_validator import PlateauValidator
 
 
 class TestApp(unittest.TestCase):
