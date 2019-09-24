@@ -45,7 +45,7 @@ package:
     ##############################
 	#Build wheel files        ###
 	#############################
-	python setup.py bdist_wheel
+	python3 setup.py bdist_wheel
 	##############################
 	#Build success!!          ###
 	#############################
