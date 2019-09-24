@@ -33,7 +33,7 @@ class Rover(object):
         for i in range(len(commands)):
             if not self.process_command(commands[i]):
                 self.logger.error(
-                    "Id:" + i + " .Rover can't move to next step due to collision or out of safe area, rover will "
+                    "Id:" + str(i) + " .Rover can't move to next step due to collision or out of safe area, rover will "
                     "stop at current position and abandon the rest commands if there is "
                 )
                 break

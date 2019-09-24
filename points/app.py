@@ -2,13 +2,13 @@ import logging
 import ast
 import sys
 import os
+
 curPath = os.path.abspath(os.path.dirname(__file__))
 rootPath = os.path.split(curPath)[0]
 sys.path.append(rootPath)
 
-
-from points.src.common.util import Util
 from points.src.configuration.log_config import setup_logging
+from points.src.common.util import Util
 from points.src.exception.validation_exception import ValidationException
 from points.src.service.position_calculator import PositionCalculator
 from points.src.service.validation.plateau_validator import PlateauValidator
@@ -35,7 +35,7 @@ def main(argv):
     if len(argv) != 3:
         plateau_input = "5 5"
         rovers_input = ast.literal_eval(
-            "[['1 2 N', 'LMLMLMLMM'], ['3 3 E', 'MMRMMRMRRM']]")
+            "[['1 2 N', 'LMLMLMLMM'], ['3 3 E', 'AMMRMMRMRRM']]")
     else:
         plateau_input = argv[1]
         rovers_input = ast.literal_eval(argv[2])
