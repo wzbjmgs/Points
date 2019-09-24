@@ -6,7 +6,7 @@ venv3: requirements.txt
 	#Install required dependencies
 	#############################
 	test -d venv || virtualenv --python=python3 venv
-	venv/bin/pip install -r requirements.txt;
+	venv/bin/pip install -r requirements.txt
 	touch venv/bin/activate
 
 clean:
@@ -28,7 +28,7 @@ package:
     ##############################
 	#Build wheel files        ###
 	#############################
-	python setup.py bdist_wheel
+	python3 setup.py bdist_wheel
 	##############################
 	#Build success!!          ###
 	#############################
