@@ -11,9 +11,11 @@ def setup_logging():
     docs = "docs"
 
     logfile_path = os.path.dirname(sys.path[0]) + "/" + docs + "/" + default_log_path
-    path = os.path.join(os.path.dirname(sys.path[0]), default_path)
+    if not os.path.exists(logfile_path):
+        os.makedirs(logfile_path)
+    config_file = os.path.join(os.path.dirname(sys.path[0]), default_path)
     try:
-        with open(path, 'r') as f:
+        with open(config_file, 'r') as f:
             config = yaml.safe_load(f.read())
         __update_logfile_path(logfile_path, config)
         logging.config.dictConfig(config)
