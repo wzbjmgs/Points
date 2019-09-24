@@ -1,7 +1,11 @@
-# POINTS MARS ROVERS
+POINTS MARS ROVERS
 ===========================
 
 This is a assignment for points MARS ROVERS problem.
+
+## Basic Requirements
+- Python 3.7
+- Pip 3
 
 ## Input Data Model
 
