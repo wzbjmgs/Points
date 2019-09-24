@@ -15,7 +15,7 @@ endif
 virtualenv: check_python3 check_pip3
 	@echo Check if the software 'virtualenv' is installed.
 	@echo [WARNING] Using 'pip' to install it in the user directory.
-	hash virtualenv 2>/dev/null || pip install virtualenv
+	hash virtualenv 2>/dev/null || pip3 install virtualenv
 
 venv3: virtualenv venv/bin/activate
 venv/bin/activate: requirements.txt
