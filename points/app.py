@@ -1,12 +1,14 @@
-import os
-import sys
 import logging
 import ast
+import sys
+import os
+curPath = os.path.abspath(os.path.dirname(__file__))
+rootPath = os.path.split(curPath)[0]
+sys.path.append(rootPath)
 
-sys.path.append(os.path.dirname(sys.path[0]))
 
-from docs.log_config.config import setup_logging
 from points.src.common.util import Util
+from points.src.configuration.log_config import setup_logging
 from points.src.exception.validation_exception import ValidationException
 from points.src.service.position_calculator import PositionCalculator
 from points.src.service.validation.plateau_validator import PlateauValidator
@@ -16,7 +18,7 @@ __author__ = 'Jayden'
 log = logging.getLogger(__name__)
 
 
-def calculate_rover_position(plateau_input: str, rovers_input: list) -> list:
+def calculate_rover_position(plateau_input, rovers_input):
     validation_result = PlateauValidator.validate(plateau_input)
     if validation_result.status == Util.FAIL:
         raise ValidationException(validation_result.message)
@@ -27,7 +29,6 @@ def calculate_rover_position(plateau_input: str, rovers_input: list) -> list:
 
 def main(argv):
     setup_logging()
-
     # argv receive arguments when using shell script start application
     plateau_input = ""
     rovers_input = []

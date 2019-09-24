@@ -3,10 +3,7 @@ from setuptools import setup, find_packages
 with open('README.md') as f:
     readme = f.read()
 
-with open('LICENSE') as f:
-    license = f.read()
-
-setup(name='Points',
+setup(name='points',
       version='1.0',
       long_description=readme,
       url='',
@@ -14,5 +11,4 @@ setup(name='Points',
       author='Jayden',
       author_email='',
       description='Points MARS ROVERS Assignment',
-      packages=find_packages(
-          exclude=['*.tests', '*.tests.*', 'tests.*', 'tests', 'docs.*']))
+      packages=find_packages(exclude=['*.tests', '*.tests.*', 'tests.*', 'tests', 'docs.*']))

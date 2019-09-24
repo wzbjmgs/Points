@@ -1,19 +1,15 @@
 import os
 import logging.config
 import sys
-
 import yaml
 
 
-def setup_logging(
-        default_path='logging.yml',
-        default_level=logging.INFO,
-        default_log_path="log_files",
-        docs="docs"
-):
-    """Setup logging configuration
+def setup_logging():
+    default_path = "logging.yml"
+    default_level = logging.INFO
+    default_log_path = "log_files"
+    docs = "docs"
 
-    """
     logfile_path = os.path.dirname(sys.path[0]) + "/" + docs + "/" + default_log_path
     current_directory = os.path.dirname(os.path.abspath(__file__))
     path = os.path.join(current_directory, default_path)
