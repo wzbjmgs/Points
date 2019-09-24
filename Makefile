@@ -1,7 +1,24 @@
 REQUIREMENTS_FILE=requirements.txt
+PYTHON3-exists := $(shell command -v python3 2> /dev/null)
+PIP-exists := $(shell command -v pip3 2> /dev/null)
 
+check_python3:
+ifndef PYTHON3-exists
+	$(error "python3 is not available - please install it.")
+endif
 
-venv3: requirements.txt
+check_pip3:
+ifndef PIP-exists
+	$(error "pip3 is not available - please install it.")
+endif
+
+virtualenv: check_python3 check_pip3
+	@echo Check if the software 'virtualenv' is installed.
+	@echo [WARNING] Using 'pip' to install it in the user directory.
+	hash virtualenv 2>/dev/null || pip3 install virtualenv
+
+venv3: virtualenv venv/bin/activate
+venv/bin/activate: requirements.txt
     ##############################
 	#Install required dependencies
 	#############################
