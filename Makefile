@@ -30,7 +30,7 @@ clean:
 	##############################
 	#Clean up any build files.###
 	#############################
-	python setup.py clean --all
+	python3 setup.py clean --all
 	rm -rf build-*
 	rm -rf *egg*
 	rm -rf dist
