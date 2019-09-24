@@ -58,7 +58,14 @@ make test
 
 ## How to run application
 ### Approach 1:
+After success runnong "make install", active the virtual environment before running application.
 Open your termianl, go to the root of project and run following command.
+
+```
+source venv/bin/activate
+```
+
+Open your terminal, go to the root of project and run following command.
 
 ```
 bash run.sh "5 5" "[['1 2 N', 'LMLMLMLMM'], ['3 3 E', 'MMRMMRMRRM']]"
