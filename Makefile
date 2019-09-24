@@ -1,5 +1,4 @@
 REQUIREMENTS_FILE=requirements.txt
-REQUIREMENTS_OUT=requirements.txt.log
 PYTHON3-exists := $(shell command -v python3 2> /dev/null)
 PIP-exists := $(shell command -v pip3 2> /dev/null)
 
@@ -16,49 +15,45 @@ endif
 virtualenv: check_python3 check_pip3
 	@echo Check if the software 'virtualenv' is installed.
 	@echo [WARNING] Using 'pip' to install it in the user directory.
-	hash virtualenv 2>/dev/null || pip install --user virtualenv
+	hash virtualenv 2>/dev/null || pip3 install virtualenv
 
 venv3: virtualenv venv/bin/activate
 venv/bin/activate: requirements.txt
+    ##############################
+	#Install required dependencies
+	#############################
 	test -d venv || virtualenv --python=python3 venv
-	venv/bin/pip install -r requirements.txt;
+	venv/bin/pip install -r requirements.txt
 	touch venv/bin/activate
 
 clean:
-	# Clean up any build files.
-	python setup.py clean --all
-	#
-	# Clean up everything else
-	rm MANIFEST || true
+	##############################
+	#Clean up any build files.###
+	#############################
+	python3 setup.py clean --all
 	rm -rf build-*
-	#
-	# Clean up the egg files
 	rm -rf *egg*
-	#
-	# Remove dist
 	rm -rf dist
-	#rm $(REQUIREMENTS_OUT)
+	rm -rf docs/log_files/*.log
 
 install_deps: venv3
 
 remove_deps:
 	-rm -rf venv
 
-build:
-	# Generate the tarball based on MANIFEST.in
-	python setup.py sdist
-	#
-	#
-	# Build the python Egg
-	python setup.py bdist_egg
-	#
-	@echo
-	@echo "Files to upload:"
-	@echo "--------------------------"
-	@ls -l ./dist/
+package:
+    ##############################
+	#Build wheel files        ###
+	#############################
+	python3 setup.py bdist_wheel
+	##############################
+	#Build success!!          ###
+	#############################
 
-check:
-	# Run all the tests.
-	nosetests
+test:
+	##############################
+	#Run all testes           ###
+	#############################
+	nosetests -v -s
 
-dev: clean install_deps check build
+install: clean install_deps test package
