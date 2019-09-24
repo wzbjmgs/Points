@@ -5,14 +5,13 @@ import yaml
 
 
 def setup_logging():
-    default_path = "logging.yml"
+    default_path = "points/src/resources/logging.yml"
     default_level = logging.INFO
     default_log_path = "log_files"
     docs = "docs"
 
     logfile_path = os.path.dirname(sys.path[0]) + "/" + docs + "/" + default_log_path
-    current_directory = os.path.dirname(os.path.abspath(__file__))
-    path = os.path.join(current_directory, default_path)
+    path = os.path.join(os.path.dirname(sys.path[0]), default_path)
     try:
         with open(path, 'r') as f:
             config = yaml.safe_load(f.read())

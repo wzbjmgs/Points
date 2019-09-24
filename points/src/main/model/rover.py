@@ -1,6 +1,6 @@
 import logging
 
-from points.src.common.util import Util
+from points.src.main.common.util import Util
 from .plateau import Plateau
 
 

@@ -1,7 +1,7 @@
 import unittest
 
 from nose.tools import assert_equal
-from points.src.model.plateau import Plateau
+from points.src.main.model.plateau import Plateau
 
 
 class TestPlateau(unittest.TestCase):

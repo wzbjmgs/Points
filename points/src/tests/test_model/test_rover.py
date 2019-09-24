@@ -2,12 +2,12 @@ import unittest
 
 from mock import Mock
 
-from points.src.common.util import Util
+from points.src.main.common.util import Util
 from nose.tools import assert_equal
 
-from points.src.model.plateau import Plateau
-from points.src.model.position import Position
-from points.src.model.rover import Rover
+from points.src.main.model.plateau import Plateau
+from points.src.main.model.position import Position
+from points.src.main.model.rover import Rover
 
 
 class TestRover(unittest.TestCase):

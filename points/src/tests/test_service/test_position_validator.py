@@ -2,12 +2,12 @@ import unittest
 
 import numpy as np
 
-from points.src.common.util import Util
+from points.src.main.common.util import Util
 
 from nose.tools import assert_equal
 
-from points.src.model.plateau import Plateau
-from points.src.service.validation.position_validator import PositionValidator
+from points.src.main.model.plateau import Plateau
+from points.src.main.service.validation.position_validator import PositionValidator
 
 
 class TestPositionValidator(unittest.TestCase):

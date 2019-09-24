@@ -1,9 +1,9 @@
 import logging
 import re
 
-from points.src.common.util import Util
-from points.src.model.validation_result import ValidationResult
-from points.src.service.validation.base_validator import BaseValidator
+from points.src.main.common.util import Util
+from points.src.main.model.validation_result import ValidationResult
+from points.src.main.service.validation.base_validator import BaseValidator
 
 
 class PlateauValidator(BaseValidator):

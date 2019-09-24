@@ -2,11 +2,11 @@ import unittest
 from mock import Mock
 from nose.tools import assert_equal
 
-from points.src.common.util import Util
-from points.src.model.rover import Rover
-from points.src.model.validation_result import ValidationResult
-from points.src.service.position_calculator import PositionCalculator
-from points.src.service.validation.position_validator import PositionValidator
+from points.src.main.common.util import Util
+from points.src.main.model.rover import Rover
+from points.src.main.model.validation_result import ValidationResult
+from points.src.main.service.position_calculator import PositionCalculator
+from points.src.main.service.validation.position_validator import PositionValidator
 
 
 class TestPositionCalculator(unittest.TestCase):
