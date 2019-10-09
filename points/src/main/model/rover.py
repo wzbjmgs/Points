@@ -4,7 +4,7 @@ from points.src.main.common.util import Util
 from .plateau import Plateau
 
 
-class Rover(object):
+class Rover:
     logger = logging.getLogger(__name__)
 
     __position = ""

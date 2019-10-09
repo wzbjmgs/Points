@@ -1,4 +1,4 @@
-class Util(object):
+class Util:
     SUCCESS = "OK"
     FAIL = "fail"
 

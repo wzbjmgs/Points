@@ -1,7 +1,7 @@
 import numpy
 
 
-class Plateau(object):
+class Plateau:
     min_width = 0
     min_height = 0
     matrix = []
