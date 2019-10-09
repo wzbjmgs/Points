@@ -21,4 +21,6 @@ setup(name='points',
       author_email='',
       install_requires=install_requires,
       description='Points MARS ROVERS Assignment',
+      package_data={'': ['*.yml']},
+      include_package_data=True,
       packages=find_packages(exclude=['*.tests', '*.tests.*', 'tests.*', 'tests', 'docs.*']))
