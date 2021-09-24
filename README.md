@@ -90,3 +90,5 @@ While you can check the output in more details. For example: what is the move hi
 Move to Points/docs/log_files directory. There suppose to have two log files.
 1. info.log records all rovers' moving history.
 2. errors.log records all exception situations. For example, if the next move coordinate is occupied by other rover already, I will stop the current rover and log the collision error to errors.log.
+
+Update readme. 
